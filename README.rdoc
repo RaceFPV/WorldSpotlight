@@ -1,28 +1,22 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=== Team MACC Presents:
+==== World Spotlight
 
-Things you may want to cover:
+* view realtime weather, time, currency rates, and more!
 
-* Ruby version
+* get beautiful images from countries
 
-* System dependencies
+* get local news per country
 
-* Configuration
+* See upcoming country events
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* And more!
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+==== Team MACC:
+
+* Mike Rickert
+* Cameron Craig
+* Cristian Archille
+* Alex T
