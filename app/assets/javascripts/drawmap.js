@@ -18,9 +18,9 @@ $(function(){
     regionStyle: {
       initial: {
     fill: '#252537',
-    "fill-opacity": 0.8,
-    stroke: 'none',
-    "stroke-width": 0,
+    "fill-opacity": 1,
+    stroke: '#000',
+    "stroke-width": 0.7,
     "stroke-opacity": 1
       },
       selected: {
