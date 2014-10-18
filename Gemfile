@@ -48,3 +48,4 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'tzinfo-data', platforms: [:x64_mingw,:mingw, :mswin]
