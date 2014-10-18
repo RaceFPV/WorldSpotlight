@@ -8,6 +8,7 @@
 }
 
 #countryinfo {
+  margin-top: 20px;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -17,7 +18,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   z-index: -1;
 }
@@ -30,7 +31,15 @@
   padding: 5px;
   font-size: 25px;
   font-weight: 600;
-  background-color:rgba(0, 0, 0, 0.5)
+  background-color: #111;
+  opacity: 0.7;
+}
+
+.thetime {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 // overrides for bootstrap
@@ -40,8 +49,8 @@
 }
 
 .panel-primary {
-  height: 20vh !important;
-  background-color: #47A3FF !important;
+  background-color: transparent !important;
+  border-color: rgba(0, 0, 0, 0.5) !important;
 }
 
 .panel {
@@ -49,9 +58,20 @@
 }
 
 .panel-heading {
+  font-size: 2em !important;
   border-radius: 0px !important;
+  text-align: center;
+  color: #FFF !important;
+  font-weight: 900 !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.panel-heading h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .panel-body {
-  background-color: #47A3FF !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  height: 150px !important;
 }

@@ -27,17 +27,10 @@ $(function(){
         fill: '#E6E600'
       }
     },
-  series: {
-    regions: [{
-      values: applyingData,
-      scale: ['#ffc9d3', '#37bc9b'],
-      normalizeFunction: 'polynomial'
-    }]
-  },
-  onRegionLabelShow: function(e, el, code){
-    el.html(el.html());
-  },
     backgroundColor: 'transparent',
+      onRegionLabelShow: function(e, el, code){
+    e.preventDefault();
+      },
       onRegionSelected: function(){
         var region = map.getSelectedRegions();
         $.get( "map/" +region+ "")
