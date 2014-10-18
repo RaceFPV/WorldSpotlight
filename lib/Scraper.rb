@@ -41,12 +41,18 @@ class FlickrScraper < Scraper
 		res.each do |rs|
 			if(rs[:originalsecret].class != nil)
 				farm = rs[:farm]
+        puts "farm is #{farm}"
 				secret = rs[:originalsecret]
+        puts "secret is #{secret}"
 				server = rs[:server]
+        puts "server is #{server}"
 				id = rs[:id]
+        puts "id is #{id}"
         if farm and secret and server and id
+          puts "string is #{string}"
 				  string = "http://farm"+farm+".staticflickr.com/"+server+"/"+id+"_"+secret+"_o.jpg"
         else
+          puts "string error"
           string = ""
         end
 			end
