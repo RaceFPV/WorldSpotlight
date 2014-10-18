@@ -26,8 +26,9 @@ gem 'country-select'
 gem 'jquery-ui-rails'
 gem 'font-awesome-rails'
 gem 'bootstrap-sass'
-gem 'monetize'
-gem 'google_currency'
+gem 'money-rails'
+gem "google_currency"
+gem 'currencies'
 gem 'yahoo_weather'
 gem 'nokogiri'
 

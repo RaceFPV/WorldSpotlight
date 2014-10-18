@@ -54,7 +54,11 @@
           <h3>Currency rates</h3>
         </div>
         <div class="panel-body">
-          rates go here
+          $1 = <%= @currencysymbol %><%= @currencyconverted1 %> <%= @currencyname %>
+          <br/>
+          $10 = <%= @currencysymbol %><%= @currencyconverted10 %> <%= @currencyname %>
+          <br/>
+          $100 = <%= @currencysymbol %><%= @currencyconverted100 %> <%= @currencyname %>
         </div>
       </div>
     </div>
