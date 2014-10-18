@@ -14,10 +14,14 @@
           friday
           <br/>
           <strong>Temp: </strong>
-          <%= @weather.condition.temp %> <%= @weather.units.temperature %>
+          <% if @weather %>
+            <%= @weather.condition.temp %> <%= @weather.units.temperature %>
           <br/>
           <strong>Conditions: </strong>
           <%= @weather.condition.code('string') %>
+          <% else %>
+            Weather not available
+          <% end %>
         </div>
       </div>
     </div>
