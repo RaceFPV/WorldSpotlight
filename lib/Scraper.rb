@@ -34,31 +34,24 @@ class FlickrScraper < Scraper
 
 	def getImageUrl()
 		string = ""
-		response = open('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=506ed830c6237fa6d09a78faf55611ff&text='+location+'&per_page=1&page=1&extras=original_format&format=rest').read
-		print(response)
+		response = open('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=506ed830c6237fa6d09a78faf55611ff&sort=interestingness-asc&privacy_filter=1&safe_search=1&content_type=1&tags='+location+'&per_page=100&page=1&extras=original_format&format=rest').read
 		doc = scrapeObj(response)
 		res = doc.xpath("//photo")
 		res.each do |rs|
-			if(rs[:originalsecret].class != nil)
-				farm = rs[:farm]
-        puts "farm is #{farm}"
-				secret = rs[:originalsecret]
-        puts "secret is #{secret}"
-				server = rs[:server]
-        puts "server is #{server}"
-				id = rs[:id]
-        puts "id is #{id}"
-        if farm and secret and server and id
-          puts "string is #{string}"
-				  string = "http://farm"+farm+".staticflickr.com/"+server+"/"+id+"_"+secret+"_o.jpg"
-        else
-          puts "string error"
-          string = ""
-        end
+			id = rs[:id]
+			puts "id is #{id}"
+			sizeGET = open('https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=506ed830c6237fa6d09a78faf55611ff&&photo_id='+id+'&format=rest')
+			docSize = scrapeObj(sizeGET)
+			docSizePath = docSize.xpath("//size")
+			puts docSizePath.count
+			docSizePath.each do |dsp|
+				if(dsp[:label] == 'Original')
+					string = dsp[:source]
+					puts "string is #{string}"
+					return string
+				end
 			end
-
 		end
-		return string
 	end
 end
 
