@@ -44,7 +44,11 @@ class FlickrScraper < Scraper
 				secret = rs[:originalsecret]
 				server = rs[:server]
 				id = rs[:id]
-				string = "http://farm"+farm+".staticflickr.com/"+server+"/"+id+"_"+secret+"_o.jpg"
+        if farm and secret and server and id
+				  string = "http://farm"+farm+".staticflickr.com/"+server+"/"+id+"_"+secret+"_o.jpg"
+        else
+          getImageUrl()
+        end
 			end
 
 		end
