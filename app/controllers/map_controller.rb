@@ -27,6 +27,10 @@ class MapController < ApplicationController
     @currencyconverted10 = Money.us_dollar(1000).exchange_to(@currencycode)
     @currencyconverted100 = Money.us_dollar(10000).exchange_to(@currencycode)
     @currencyconverted1000 = Money.us_dollar(100000).exchange_to(@currencycode)
+    
+    #for seasons
+    @countryregion = Country.find_country_by_alpha2(@country).region
+    @countrysubregion = Country.find_country_by_alpha2(@country).subregion
 
     #render the country info
     return render partial: 'show.js.erb'
