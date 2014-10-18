@@ -25,12 +25,12 @@ obj.getImageUrl() <- it returns the url of the image at original size
 
 =end
 
-end
 class FlickrScraper < Scraper
 	attr_accessor :location
 
 	def initialize(name)
 		@location = name
+	end
 
 	def getImageUrl()
 		string = 0
