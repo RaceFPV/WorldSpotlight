@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  
   //draw the world map
 
   //only draw it once
@@ -6,9 +7,11 @@ $(document).ready(function() {
   var parent = document.getElementById('worldmap');
   parent.removeChild(parent.childNodes[0]);
   }
-
-  $('#worldmap').vectorMap({
-    map: 'world_mill_en', 
+$(function(){
+    var map;
+    map = new jvm.WorldMap({
+    container: $('#worldmap'),
+    map: 'world_mill_en',
     zoomAnimate: true,
     regionsSelectable: true,
     regionsSelectableOne: true,
@@ -34,5 +37,10 @@ $(document).ready(function() {
   onRegionLabelShow: function(e, el, code){
     el.html(el.html());
   },
-    backgroundColor: '#fff'});
+    backgroundColor: '#fff',
+      onRegionSelected: function(){
+        var region = map.getSelectedRegions();
+        $.get( "map/" +region+ "")
+    }});
+});
 });
