@@ -13,7 +13,7 @@
           <% czone = c.zone_identifiers.first %>
           <% Time.zone = czone %>
           <%= Time.zone.now.strftime("%I:%M%p") %> on 
-          <%= Time.zone.now.strftime("%B %d, %Y") %>
+          <%= Time.zone.now.strftime("%A") %>
           <br/>
           <strong>Temp: </strong>
           <% if @weather %>
