@@ -65,8 +65,7 @@ class NewsScraper < Scraper
 
 	def getNews()
 		doc = scrapeUrl("http://www.faroo.com/api?q=#{location}&start=1&length=3&l=en&src=news&f=xml&key=lBbetYupJAk2n8scJmiKTVDlNrw_")
-		scrp = doc.xpath("//result")
-		return scrp
+		return doc
     
 	def getCapital()
 		doc = scrapeUrl("http://en.wikipedia.org/wiki/"+location)

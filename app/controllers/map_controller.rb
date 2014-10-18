@@ -33,12 +33,15 @@ class MapController < ApplicationController
     @countrysubregion = Country.find_country_by_alpha2(@country).subregion
     
     #for news
-    news = NewsScraper.new(URI::encode(@countryname.to_s))
-    @newsarticle1 = news.getNews().first
-    @newsarticle1title = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//title").first.to_s)
-    @newsarticle1time = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//firstpublished").first.to_s)
-    @newsarticle1info = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//kwic").first.to_s)
-    @newsarticle1link = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//url").first.to_s)
+    # @newsarticle1 = news.getNews().first
+    # @newsarticle1title = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//title").first.to_s)
+    # @newsarticle1time = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//firstpublished").first.to_s)
+    # @newsarticle1info = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//kwic").first.to_s)
+    # @newsarticle1link = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//url").first.to_s)
+
+      news = NewsScraper.new(URI::encode(@countryname.to_s))
+      @page = news.getNews
+
 
     #render the country info
     return render partial: 'show.js.erb'
