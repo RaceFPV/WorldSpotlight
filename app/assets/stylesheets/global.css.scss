@@ -14,3 +14,18 @@ html,body,h1{
   margin-top: 0px;
   opacity: 0.7;
 }
+
+
+
+
+video#bgvid { 
+position: fixed;
+min-width: 100%;
+min-height: 100%;
+z-index: -100;
+background: url(clouds.jpg) no-repeat;
+background-size: cover;
+overflow:hidden;
+opacity:0.5;
+}
+
