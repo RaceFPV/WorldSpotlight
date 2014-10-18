@@ -35,9 +35,9 @@ gem 'rails_12factor', group: :production
 
 group :development do
   gem 'quiet_assets' # Turns off the Rails asset pipeline log
-  gem 'sqlite3'
 end
 
+gem 'sqlite3'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
