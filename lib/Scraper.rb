@@ -34,7 +34,7 @@ class FlickrScraper < Scraper
 
 	def getImageUrl()
 		string = ""
-		response = open('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=506ed830c6237fa6d09a78faf55611ff&sort=interestingness-asc&privacy_filter=1&safe_search=1&content_type=1&tags='+location+'&per_page=100&page=1&extras=original_format&format=rest').read
+		response = open('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=506ed830c6237fa6d09a78faf55611ff&privacy_filter=1&safe_search=1&content_type=1&tags='+location+'&per_page=100&page=1&extras=original_format&format=rest').read
 		doc = scrapeObj(response)
 		res = doc.xpath("//photo")
 		res.each do |rs|
