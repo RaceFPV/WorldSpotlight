@@ -3,6 +3,7 @@ class MapController < ApplicationController
   end
 
   def show
+    render partial: 'show.js.erb'
   end
 
 end
