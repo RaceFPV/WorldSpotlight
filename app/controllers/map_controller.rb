@@ -23,9 +23,9 @@ class MapController < ApplicationController
     @currencycode = Country[@country].currency['code']
     Money::Bank::GoogleCurrency.ttl_in_seconds = 86400
     Money.default_bank = Money::Bank::GoogleCurrency.new
-    @currencyconverted1 = Money.us_dollar(1).exchange_to(@currencycode)
-    @currencyconverted10 = Money.us_dollar(10).exchange_to(@currencycode)
-    @currencyconverted100 = Money.us_dollar(100).exchange_to(@currencycode)
+    @currencyconverted1 = Money.us_dollar(100).exchange_to(@currencycode)
+    @currencyconverted10 = Money.us_dollar(1000).exchange_to(@currencycode)
+    @currencyconverted100 = Money.us_dollar(10000).exchange_to(@currencycode)
 
     #render the country info
     return render partial: 'show.js.erb'
