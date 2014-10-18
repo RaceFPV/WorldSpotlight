@@ -7,7 +7,23 @@ $(document).ready(function() {
   parent.removeChild(parent.childNodes[0]);
   }
 
-  $('#worldmap').vectorMap({map: 'world_mill_en', 
+  $('#worldmap').vectorMap({
+    map: 'world_mill_en', 
+    zoomAnimate: true,
+    regionsSelectable: true,
+    regionsSelectableOne: true,
+    regionStyle: {
+      initial: {
+    fill: '#ccd1d9',
+    "fill-opacity": 1,
+    stroke: 'none',
+    "stroke-width": 0,
+    "stroke-opacity": 1
+      },
+      selected: {
+        fill: '#F4A582'
+      }
+    },
   series: {
     regions: [{
       values: applyingData,
@@ -16,13 +32,7 @@ $(document).ready(function() {
     }]
   },
   onRegionLabelShow: function(e, el, code){
-    el.html(el.html()+' (Details - '+applyingData[code]+')');
+    el.html(el.html());
   },
-    backgroundColor: '#fff', regionStyle: {  initial: {
-    fill: '#ccd1d9',
-    "fill-opacity": 1,
-    stroke: 'none',
-    "stroke-width": 0,
-    "stroke-opacity": 1
-  }},});
+    backgroundColor: '#fff'});
 });
