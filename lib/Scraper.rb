@@ -47,7 +47,7 @@ class FlickrScraper < Scraper
         if farm and secret and server and id
 				  string = "http://farm"+farm+".staticflickr.com/"+server+"/"+id+"_"+secret+"_o.jpg"
         else
-          getImageUrl()
+          string = ""
         end
 			end
 
