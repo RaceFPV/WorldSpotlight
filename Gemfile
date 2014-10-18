@@ -29,6 +29,7 @@ gem 'bootstrap-sass'
 gem 'monetize'
 gem 'google_currency'
 gem 'yahoo_weather'
+gem 'pg'
 
 #Heroku support
 gem 'rails_12factor', group: :production
