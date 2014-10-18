@@ -28,6 +28,8 @@ gem 'country-select'
 gem 'jquery-ui-rails'
 gem 'font-awesome-rails'
 gem 'bootstrap-sass'
+gem 'monetize'
+gem 'google_currency'
 
 #Heroku support
 gem 'rails_12factor', group: :production
