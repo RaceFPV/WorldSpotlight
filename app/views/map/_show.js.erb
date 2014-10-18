@@ -1,9 +1,6 @@
 $('#countryshow').remove();
-if ($('.countryimagebackground').length === 2) {
-  $('.countryimagebackground').first().remove();
+if ($('.backgroundimage').length > 1) {
+  $('.backgroundimage').first().remove();
 }
 $("#countryinfo").append("<%= j render('background.html.erb') %>");
 $("#countryinfo").prepend("<%= j render('show.html.erb') %>");
-$(".countryimagebackground").first().removeClass("fadein");
-$(".countryimagebackground").first().toggleClass("fadeout");
-$(".countryimagebackground").last().toggleClass("fadein");
