@@ -1,24 +1,3 @@
-/* normal Cabin font*/
-@font-face {
-	font-family: 'Cabin';
-	src: url('/assets/Cabin-Regular.ttf');
-	font-weight: normal;
-}
-
-/* bold Cabin font*/
-@font-face {
-	font-family: 'Cabin';
-	src: url('/assets/Cabin-Bold.ttf');
-	font-weight: bold;
-}
-
-/* bold Montserrat font*/
-@font-face {
-	font-family: 'Montserrat';
-	src: url('/assets/Montserrat-Bold.ttf');
-	font-weight: bold;
-}
-
 html,body,h1{
 	margin:0;
 }
