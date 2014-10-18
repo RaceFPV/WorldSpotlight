@@ -13,8 +13,11 @@
           <br/>
           friday
           <br/>
-          <strong>weather: </strong>
-          <%= @weather.condition.temp %>
+          <strong>Temp: </strong>
+          <%= @weather.condition.temp %> <%= @weather.units.temperature %>
+          <br/>
+          <strong>Conditions: </strong>
+          <%= @weather.condition.code('string') %>
         </div>
       </div>
     </div>
