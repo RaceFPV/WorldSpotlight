@@ -1,3 +1,51 @@
 <div id="countryshow"> <!-- KEEP ME HERE -->
-  <h1>country details go here</h1>
+  <% if @countryname %>
+    <div class="countryname"> <%= @countryname %> </div>
+  <% end %>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3>Time & Weather</h3>
+        </div>
+        <div class="panel-body">
+          00:00:00
+          <br/>
+          friday
+          <br/>
+          cold
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3>News</h3>
+        </div>
+        <div class="panel-body">
+          fucking news
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3>Events</h3>
+        </div>
+        <div class="panel-body">
+          events list goes here
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3>Currency rates</h3>
+        </div>
+        <div class="panel-body">
+          rates go here
+        </div>
+      </div>
+    </div>
+  </div>
 </div> <!-- KEEP ME HERE -->

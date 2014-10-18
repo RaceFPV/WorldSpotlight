@@ -17,14 +17,14 @@ $(function(){
     regionsSelectableOne: true,
     regionStyle: {
       initial: {
-    fill: '#ccd1d9',
-    "fill-opacity": 1,
+    fill: '#252537',
+    "fill-opacity": 0.8,
     stroke: 'none',
     "stroke-width": 0,
     "stroke-opacity": 1
       },
       selected: {
-        fill: '#F4A582'
+        fill: '#E6E600'
       }
     },
   series: {
@@ -37,7 +37,7 @@ $(function(){
   onRegionLabelShow: function(e, el, code){
     el.html(el.html());
   },
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
       onRegionSelected: function(){
         var region = map.getSelectedRegions();
         $.get( "map/" +region+ "")

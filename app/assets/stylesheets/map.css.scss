@@ -11,3 +11,36 @@
   width: 100%;
   height: 40vh;
 }
+
+.countryname {
+  position: absolute;
+  left: 25px;
+  top: 90px;
+  background: #ddd;
+  color: #fff;
+  padding: 5px;
+  font-size: 20px;
+}
+
+// overrides for bootstrap
+.col-sm-3 {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.panel-primary {
+  height: 20vh !important;
+  background-color: #47A3FF !important;
+}
+
+.panel {
+  border-radius: 0px !important;
+}
+
+.panel-heading {
+  border-radius: 0px !important;
+}
+
+.panel-body {
+  background-color: #47A3FF !important;
+}

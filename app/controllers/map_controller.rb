@@ -3,7 +3,9 @@ class MapController < ApplicationController
   end
 
   def show
-    render partial: 'show.js.erb'
+    @country = params[:id]
+    @countryname = Country.find_country_by_alpha2(@country)
+    return render partial: 'show.js.erb'
   end
 
 end
