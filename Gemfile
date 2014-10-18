@@ -33,11 +33,15 @@ gem 'yahoo_weather'
 gem 'nokogiri'
 
 #Heroku support
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
 
 group :development do
   gem 'quiet_assets' # Turns off the Rails asset pipeline log
   gem 'sqlite3'
 end
+
 
 gem 'tzinfo-data', platforms: [:x64_mingw,:mingw, :mswin]
