@@ -84,3 +84,4 @@ class WeatherScraper < Scraper
 	def getCapitalWeather(location)
 	end
 end
+end

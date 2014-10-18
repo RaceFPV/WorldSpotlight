@@ -31,6 +31,10 @@ class MapController < ApplicationController
     #for seasons
     @countryregion = Country.find_country_by_alpha2(@country).region
     @countrysubregion = Country.find_country_by_alpha2(@country).subregion
+    
+    #for news
+    news = NewsScraper.new(URI::encode(@countryname.to_s))
+    @newsarticle1 = news.getNews()
 
     #render the country info
     return render partial: 'show.js.erb'
