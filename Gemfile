@@ -28,7 +28,7 @@ gem 'font-awesome-rails'
 gem 'bootstrap-sass'
 gem 'monetize'
 gem 'google_currency'
-gem 'google-weather'
+gem 'yahoo_weather'
 
 #Heroku support
 gem 'rails_12factor', group: :production
