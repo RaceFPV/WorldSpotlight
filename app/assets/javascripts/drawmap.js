@@ -1,5 +1,8 @@
 $(document).ready(function() {
   
+  //spinner
+  var target = document.getElementById('worldmap');
+  
   //draw the world map
 
   //only draw it once
@@ -37,7 +40,13 @@ $(function(){
       },
       onRegionSelected: function(){
         var region = map.getSelectedRegions();
-        $.get( "map/" +region+ "")
+        var spinner = new Spinner().spin(target);
+        $('#worldmap').append(spinner.el);
+        $('.countrybackgroundimage').fadeTo( "slow" , 0 );
+        $.get( "map/" +region+ "").done(function() {
+         $('.spinner').fadeOut().remove();
+          spinner.stop();
+        });
     }});
 });
 });

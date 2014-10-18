@@ -42,7 +42,8 @@ class MapController < ApplicationController
     news = NewsScraper.new(URI::encode(@countryname.to_s))
     @page = news.getNews
     @title_count = @page.css("title").count
-
+    
+   
 
     #render the country info
     return render partial: 'show.js.erb'

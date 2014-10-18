@@ -75,6 +75,7 @@ class NewsScraper < Scraper
 		end
 	end
 end
+  
 
 #WIP
 class WeatherScraper < Scraper
