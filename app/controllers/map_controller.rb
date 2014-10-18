@@ -39,8 +39,9 @@ class MapController < ApplicationController
     # @newsarticle1info = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//kwic").first.to_s)
     # @newsarticle1link = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//url").first.to_s)
 
-      news = NewsScraper.new(URI::encode(@countryname.to_s))
-      @page = news.getNews
+    news = NewsScraper.new(URI::encode(@countryname.to_s))
+    @page = news.getNews
+    @title_count = @page.css("title").count
 
 
     #render the country info
