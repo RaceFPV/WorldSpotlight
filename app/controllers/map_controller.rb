@@ -35,6 +35,10 @@ class MapController < ApplicationController
     #for news
     news = NewsScraper.new(URI::encode(@countryname.to_s))
     @newsarticle1 = news.getNews().first
+    @newsarticle1title = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//title").first.to_s)
+    @newsarticle1time = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//firstpublished").first.to_s)
+    @newsarticle1info = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//kwic").first.to_s)
+    @newsarticle1link = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//url").first.to_s)
 
     #render the country info
     return render partial: 'show.js.erb'

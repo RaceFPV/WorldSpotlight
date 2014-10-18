@@ -40,7 +40,13 @@
           <h3>News</h3>
         </div>
         <div class="panel-body">
-          <%= @newsarticle1 %>
+          <%= link_to @newsarticle1link, :target => "_blank" do %>
+            <%= @newsarticle1title %>
+          <% end %>
+          <br/>
+          <%= @newsarticle1time %>
+          <br/>
+          <%= @newsarticle1info %>
         </div>
       </div>
     </div>
