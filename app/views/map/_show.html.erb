@@ -27,6 +27,10 @@
           <% end %>
           <br/>
           Season: <strong><%= @countrysubregion %></strong>
+          <br/>
+          <% if language(@country).present? %>
+            Language: <strong> <%=language(@country)%></strong>
+          <% end %>
         </div>
       </div>
     </div>

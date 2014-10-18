@@ -31,6 +31,7 @@ gem "google_currency"
 gem 'currencies'
 gem 'yahoo_weather'
 gem 'nokogiri'
+gem 'countries_and_languages', :require => 'countries_and_languages/rails'
 
 #Heroku support
 group :production do
