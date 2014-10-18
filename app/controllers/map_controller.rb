@@ -34,7 +34,7 @@ class MapController < ApplicationController
     
     #for news
     news = NewsScraper.new(URI::encode(@countryname.to_s))
-    @newsarticle1 = news.getNews()
+    @newsarticle1 = news.getNews().first
 
     #render the country info
     return render partial: 'show.js.erb'
