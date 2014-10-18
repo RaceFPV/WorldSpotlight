@@ -25,6 +25,10 @@ $(function(){
       },
       selected: {
         fill: '#E6E600'
+      },
+      hover: {
+        fill: '#B2B200',
+        "fill-opacity": 0.8
       }
     },
     backgroundColor: 'transparent',
