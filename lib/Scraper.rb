@@ -141,6 +141,6 @@ class YouTubeScraper < Scraper
 	end
 	def get_videos
 		client = YouTubeIt::Client.new(dev_key: "AIzaSyBcY6x0hRCf1of_ARJzFyW47s5PGYCpS_Y")
-		videos = client.videos_by(:most_viewed, region: @location)
+		results = client.videos_by(:recently_featured, region: location)
 	end
 end

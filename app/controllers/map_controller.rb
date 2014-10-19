@@ -77,7 +77,21 @@ class MapController < ApplicationController
     @country = params[:id]
     @countryname = Country.find_country_by_alpha2(@country)
 
-    #render youtube stuff
+    youtube = YouTubeScraper.new("#{@country}")
+    begin
+      @results = youtube.get_videos
+    # Rescue OpenURI
+    rescue OpenURI::HTTPError
+      @message = "There are no videos available in this country"
+      render partial: 'youtube.js.erb'
+    end
+    if @results && @results.videos.count < 5
+      @video_count = @results.videos.count - 1
+    elsif @results && @results.videos.count > 5
+      @video_count = 5
+    else
+      return @message
+    end
     return render partial: 'youtube.js.erb'
   end
 

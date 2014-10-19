@@ -1,4 +1,10 @@
 <div class="panel-body youtube-panel">
-  <!-- youtube stuff goes here -->
-  <i class="fa fa-circle-o-notch fa-spin"></i>
+<% if @results %>
+	<% @video_count.times do |num| %>
+		<a href="<%= @results.videos[num].media_content[0].url %>" target="_blank"><%= @results.videos[num].title %></a> 
+		<hr>
+	<% end %>
+<% else %>
+	<%= @message %>
+<% end %>
 </div>
