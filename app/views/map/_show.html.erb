@@ -42,6 +42,7 @@
           <% @title_count.times.each do |num| %>
           <a href="<%= @page.css('url')[num].text %>" target="_blank"><%= @page.css("title")[num].text %></a><br><br>
         <% end %>
+        </div>
       </div>
     </div>
     <div class="col-sm-3">
