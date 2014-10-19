@@ -25,21 +25,11 @@ class MapController < ApplicationController
     Money.default_bank = Money::Bank::GoogleCurrency.new
     if @currencycode
       @currencyconverted1 = Money.us_dollar(100).exchange_to(@currencycode)
-      @currencyconverted10 = Money.us_dollar(1000).exchange_to(@currencycode)
-      @currencyconverted100 = Money.us_dollar(10000).exchange_to(@currencycode)
-      @currencyconverted1000 = Money.us_dollar(100000).exchange_to(@currencycode)
     end
-    
+
     #for seasons
     @countryregion = Country.find_country_by_alpha2(@country).region
     @countrysubregion = Country.find_country_by_alpha2(@country).subregion
-    
-    #for news
-    # @newsarticle1 = news.getNews().first
-    # @newsarticle1title = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//title").first.to_s)
-    # @newsarticle1time = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//firstpublished").first.to_s)
-    # @newsarticle1info = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//kwic").first.to_s)
-    # @newsarticle1link = ActionController::Base.helpers.strip_tags(@newsarticle1.xpath("//url").first.to_s)
 
     news = NewsScraper.new(URI::encode(@countryname.to_s))
     @page = news.getNews
