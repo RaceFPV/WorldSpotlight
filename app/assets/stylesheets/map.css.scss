@@ -15,7 +15,8 @@
 }
 
 .weather-icon{
-  max-width:25px;
+  height: 20px;
+  margin-top: -10px;
 }
 
 .countrybackgroundimage {
@@ -51,6 +52,7 @@
   color: #fff;
   padding: 5px;
   font-size: 25px;
+  line-height:27px;
   font-weight: 600;
   opacity: 0.9;
 	font-family: 'Montserrat', 'Arial', 'sans-serif';
