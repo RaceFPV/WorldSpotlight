@@ -104,6 +104,7 @@ class TwitterScraper < Scraper
 	end
 
 	def getTrends()
+    puts "waiting on twitter"
     return @client.search(@location, :result_type => "recent").take(6).collect
 	end
 end
