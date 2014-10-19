@@ -60,7 +60,7 @@ end
 
 
 class NewsScraper < Scraper
-	attr_accessor :location,
+	attr_accessor :location
 
 	def initialize(name)
 		@location = name
