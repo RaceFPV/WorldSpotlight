@@ -36,7 +36,7 @@ $(function(){
     backgroundColor: 'transparent',
       onRegionSelected: function(e, code, isSelected, selectedRegions){
         if(title_moved === false){
-          $('h1#main-title').animate({width: "25%"}, 2000);
+          $('h1#main-title').animate({width: "28%"}, 2000);
           title_moved = true;
         }
         $.get( "map/" +selectedRegions)
