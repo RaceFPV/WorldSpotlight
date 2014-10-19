@@ -117,6 +117,7 @@ class TwitterScraper < Scraper
     return @client.search(@location, :result_type => "recent").take(6).collect
 	end
 
+<<<<<<< HEAD
 	def getCountryCode()
 		res = []
 		countries = client.trends_available()
