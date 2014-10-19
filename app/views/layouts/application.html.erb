@@ -9,7 +9,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <a href='http://railsrumble.com/entries/164-world-spotlight'>
+    <%= image_tag("rails-rumble-badge-2014-sm.png", id: 'rumble-badge') %>
+  </a>
   <video autoplay loop poster="assets/clouds.jpg" id="bgvid">
     <source src="assets/clouds-bg.mp4" type="video/mp4">
   </video>
@@ -18,5 +20,8 @@
     <%= render partial: 'layouts/header' %>
     <%= yield %>
   </main>
+  
+  
+  
 </body>
 </html>
