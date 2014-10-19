@@ -2,10 +2,6 @@ html,body,h1{
 margin:0;
 }
 
-#rumble-badge {
-  opacity: 0.5;
-}
-
 .row {
   margin-right: 0px;
   margin-left: 0px;
@@ -22,6 +18,7 @@ margin:0;
   right: 15px;
   top: 100px;
   z-index:50;
+  opacity: 0.5;
 }
 #main-title{
 font-family: 'Montserrat', 'Arial', 'sans-serif';
