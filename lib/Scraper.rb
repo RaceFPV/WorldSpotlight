@@ -1,6 +1,7 @@
 require 'open-uri'
 require 'nokogiri'
 require 'json'
+require 'twitter'
 
 #Base class for all the scraping class
 #TODO: Refactor
@@ -52,12 +53,14 @@ class FlickrScraper < Scraper
 				end
 			end
 		end
+		puts "Image not found"
+		return 1
 	end
 end
 
 
 class NewsScraper < Scraper
-	attr_accessor :location
+	attr_accessor :location,
 
 	def initialize(name)
 		@location = name
@@ -66,6 +69,7 @@ class NewsScraper < Scraper
 	def getNews()
 		doc = scrapeUrl("http://www.faroo.com/api?q=#{location}&start=1&length=5&l=en&src=news&f=xml&key=lBbetYupJAk2n8scJmiKTVDlNrw_")
 		return doc
+	end
     
 	def getCapital()
 		doc = scrapeUrl("http://en.wikipedia.org/wiki/"+location)
@@ -76,11 +80,42 @@ class NewsScraper < Scraper
 	end
 end
 
-#WIP
-class WeatherScraper < Scraper
-	attr_accessor :location
+=begin
 
-	def getCapitalWeather(location)
+	obj = TwitterScraper.new(CountryName)
+    obj.getTrends() <- it returns an array of trends objects, iterate it and parse the name attribute.
+
+    obj.getTreands().each do |tr| 
+    	tr.name
 	end
-end
+
+=end
+class TwitterScraper < Scraper
+	attr_accessor :location, :client
+
+	def initialize(name)
+		@location = name
+		@client = Twitter::REST::Client.new do |config|
+			config.consumer_key        = "g5ofKtyrzpeqiWHUAzkWo1v29"
+			config.consumer_secret     = "YKSQEyBYfgUxB1ngq9sebyjBafg9soHTtd1pb3HLpknQFV164l"
+			config.access_token        = "39591048-C2G2DYVox97585H9eO8eejEoVRpTMq1hrJmYcrcVd"
+			config.access_token_secret = "mKzLzKcijbMyOYneU4yuejorR5Rmx7uCd1KyrZBory9SH"
+		end
+	end
+
+	def getTrends()
+		countryCode = ""
+		locationAvailable = client.trends_available()
+		locationAvailable.each do |loc|
+			if(loc.name.downcase == @location.downcase)
+				puts loc.name
+				puts loc.woeid
+				countryCode = loc.woeid
+			end
+		end
+		trends = client.trends(countryCode)
+		trends.each do |tr|
+			puts tr.name
+		end
+	end
 end
