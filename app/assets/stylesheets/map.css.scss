@@ -40,14 +40,15 @@
 
 .countryname {
   position: absolute;
-  left: 25px;
-  top: 90px;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  text-align: center;
   color: #fff;
   padding: 5px;
   font-size: 25px;
   font-weight: 600;
-  background-color: #111;
-  opacity: 0.7;
+  opacity: 0.9;
 	font-family: 'Montserrat', 'Arial', 'sans-serif';
 }
 
