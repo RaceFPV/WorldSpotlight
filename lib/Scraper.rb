@@ -101,16 +101,18 @@ class TwitterScraper < Scraper
 	end
 
 	def getTrends()
-		puts "location is #{@location}"
+		puts "location is #{@location} , looking for WOEID"
 		countryCode = ""
 		locationAvailable = parseJson()
 		locationAvailable.each do |loc|
-			if(loc["name"] == @location)
+			if(loc["name"].capitalize.to_s == @location.to_s)
+				puts "found!"
 				puts loc["name"]
 				puts loc["woeid"]
 				countryCode = loc["woeid"]
 			end
 		end
+		puts "code is #{countryCode}"
 		trends = client.trends(countryCode)
 		trends.each do |tr|
 			puts tr.name
