@@ -32,9 +32,6 @@ $(function(){
       }
     },
     backgroundColor: 'transparent',
-      onRegionLabelShow: function(e, el, code){
-    e.preventDefault();
-      },
       onRegionSelected: function(){
         var region = map.getSelectedRegions();
         $.get( "map/" +region+ "")
