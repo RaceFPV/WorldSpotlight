@@ -95,14 +95,20 @@ class TwitterScraper < Scraper
 		end
 	end
 
+	def parseJson()
+		json = File.read(Rails::root+"lib/assets/trends_available.json")
+		return JSON.parse(json)
+	end
+
 	def getTrends()
+		puts "location is #{@location}"
 		countryCode = ""
-		locationAvailable = client.trends_available()
+		locationAvailable = parseJson()
 		locationAvailable.each do |loc|
-			if(loc.name.downcase == @location.downcase)
-				puts loc.name
-				puts loc.woeid
-				countryCode = loc.woeid
+			if(loc["name"] == @location)
+				puts loc["name"]
+				puts loc["woeid"]
+				countryCode = loc["woeid"]
 			end
 		end
 		trends = client.trends(countryCode)
@@ -119,9 +125,9 @@ class TwitterScraper < Scraper
 
 	def getCountryCode()
 		res = []
-		countries = client.trends_available()
+		countries = parseJson()
 		countries.each do |country|
-			res << country.country_code
+			res << country["countryCode"]
 		end
 		return res
 	end
