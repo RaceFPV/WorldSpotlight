@@ -1,13 +1,4 @@
-$(document).ready(function() {
-  
-  var title_moved = false
-  //draw the world map
-
-  //only draw it once
-  if ($('.jvectormap-container').length > 0) {
-  var parent = document.getElementById('worldmap');
-  parent.removeChild(parent.childNodes[0]);
-  }
+var title_moved = false;
 $(function(){
     var map;
     map = new jvm.WorldMap({
@@ -40,6 +31,10 @@ $(function(){
           title_moved = true;
         };
         var regions = selectedRegions;
+        regionclick(regions);
+    }});
+});
+function regionclick(regions){
         $.get( "map/" +regions);
         $.get( "map/" +regions+ "/countryname");
         $.get( "map/" +regions+ "/glance");
@@ -47,6 +42,4 @@ $(function(){
         $.get( "map/" +regions+ "/twitter");
         $.get( "map/" +regions+ "/news");
         $.get( "map/" +regions+ "/youtube");
-    }});
-});
-});
+}
