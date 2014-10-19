@@ -17,7 +17,7 @@
           <br/><br/>
           <% if @weather %>
           Temp: 
-          <strong><%= @weather.condition.temp %> <%= @weather.units.temperature %> <%= get_weather_icon(@weather.condition.temp) %></strong>
+            <strong><%= @weather.condition.temp %> <%= @weather.units.temperature %></strong>
           <br/>
           Conditions: 
           <strong><%= @weather.condition.code('string') %></strong>
@@ -40,10 +40,14 @@
           <h3>News</h3>
         </div>
         <div class="panel-body news-panel">
-          <% @title_count.times.each do |num| %>
-          <a href="<%= @page.css('url')[num].text %>" target="_blank"><%= @page.css("title")[num].text %></a>
-            <hr/>
-        <% end %>
+          <% if @page %>
+            <% @title_count.times.each do |num| %>
+              <a href="<%= @page.css('url')[num].text %>" target="_blank"><%= @page.css("title")[num].text %></a>
+              <hr/>
+            <% end %>
+          <% else %>
+            News not available
+          <% end %>
         </div>
       </div>
     </div>
