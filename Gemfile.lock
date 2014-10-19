@@ -48,6 +48,7 @@ GEM
     currencies (0.4.2)
     equalizer (0.0.9)
     erubis (2.7.0)
+    excon (0.40.0)
     execjs (2.2.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
@@ -70,6 +71,7 @@ GEM
     jquery-ui-rails (5.0.2)
       railties (>= 3.2.16)
     json (1.8.1)
+    jwt (1.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -88,12 +90,20 @@ GEM
       money (~> 6.1.1)
       railties (>= 3.0)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     multipart-post (2.0.0)
     naught (1.0.0)
     nokogiri (1.6.3)
       mini_portile (= 0.6.0)
     nokogiri (1.6.3-x86-mingw32)
       mini_portile (= 0.6.0)
+    oauth (0.4.7)
+    oauth2 (1.0.0)
+      faraday (>= 0.8, < 0.10)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (~> 1.2)
     pg (0.17.1)
     pg (0.17.1-x86-mingw32)
     polyglot (0.3.5)
@@ -174,6 +184,15 @@ GEM
       json (>= 1.8.0)
     yahoo_weather (1.1.1)
       rails (>= 3.1.0)
+    youtube_it (2.4.2)
+      builder
+      excon
+      faraday (>= 0.8, < 0.10)
+      json (~> 1.8)
+      nokogiri (~> 1.6.0)
+      oauth (~> 0.4.4)
+      oauth2 (~> 1.0.0)
+      simple_oauth (>= 0.1.5)
 
 PLATFORMS
   ruby
@@ -205,3 +224,4 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   yahoo_weather
+  youtube_it
