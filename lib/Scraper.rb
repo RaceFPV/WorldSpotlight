@@ -6,7 +6,11 @@ require 'twitter'
 #Base class for all the scraping class
 #TODO: Refactor
 class Scraper
-   attr_accessor :url
+   attr_accessor :url, :location
+
+   def initialize(name)
+   	@location = name
+   end
 
   def scrapeUrl(url)
   	doc = Nokogiri::HTML(open(url))
@@ -27,12 +31,6 @@ obj.getImageUrl() <- it returns the url of the image at original size
 =end
 
 class FlickrScraper < Scraper
-	attr_accessor :location
-
-	def initialize(name)
-		@location = name
-	end
-
 	def getImageUrl()
 		string = ""
 		response = open('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=506ed830c6237fa6d09a78faf55611ff&privacy_filter=1&safe_search=1&content_type=1&tags='+location+'&per_page=100&page=1&extras=original_format&format=rest').read
@@ -60,12 +58,6 @@ end
 
 
 class NewsScraper < Scraper
-	attr_accessor :location
-
-	def initialize(name)
-		@location = name
-	end
-
 	def getNews()
 		doc = scrapeUrl("http://www.faroo.com/api?q=#{location}&start=1&length=5&l=en&src=news&f=xml&key=lBbetYupJAk2n8scJmiKTVDlNrw_")
 		return doc
@@ -91,7 +83,7 @@ end
 
 =end
 class TwitterScraper < Scraper
-	attr_accessor :location, :client
+	attr_accessor :client
 
 	def initialize(name)
 		@location = name
