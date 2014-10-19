@@ -1,5 +1,6 @@
 $(document).ready(function() {
   
+  var title_moved = false
   //draw the world map
 
   //only draw it once
@@ -34,6 +35,10 @@ $(function(){
     },
     backgroundColor: 'transparent',
       onRegionSelected: function(){
+        if(title_moved == false){
+          $('h1#main-title').animate({width: "25%"}, 2000);
+          title_moved = true;
+        }
         var region = map.getSelectedRegions();
         $.get( "map/" +region+ "")
     }});
