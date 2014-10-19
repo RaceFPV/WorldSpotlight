@@ -27,7 +27,7 @@ $(function(){
     backgroundColor: 'transparent',
       onRegionSelected: function(e, code, isSelected, selectedRegions){
         if(title_moved === false){
-          $('h1#main-title').animate({width: "28%"}, 2000);
+          $('h1#main-title').animate({width: "28%"}, 750);
           title_moved = true;
         };
         var regions = selectedRegions;

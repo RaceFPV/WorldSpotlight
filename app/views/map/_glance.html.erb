@@ -7,7 +7,7 @@
           <br/><br/>
           <% if @weather %>
           Temp: 
-            <strong><%= @weather.condition.temp %> <%= @weather.units.temperature %></strong>
+          <strong><%= @weather.condition.temp %> <%= @weather.units.temperature %> <%= get_weather_icon(@weather.condition.temp) %></strong>
           <br/>
           Conditions: 
           <strong><%= @weather.condition.code('string') %></strong>
