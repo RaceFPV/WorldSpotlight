@@ -31,7 +31,8 @@ class MapController < ApplicationController
     @countryname = Country.find_country_by_alpha2(@country)
     #for twitter feed
     twitter = TwitterScraper.new(@countryname)
-    @twitter = twitter.getTweets()
+    @tweets = twitter.getTweets()
+    @trends = twitter.getTrends()
     #render the twitter panel
     return render partial: 'twitter.js.erb'
   end
