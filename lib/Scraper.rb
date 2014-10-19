@@ -104,18 +104,6 @@ class TwitterScraper < Scraper
 	end
 
 	def getTrends()
-		countryCode = ""
-		locationAvailable = client.trends_available()
-		locationAvailable.each do |loc|
-			if(loc.name.downcase == @location.downcase)
-				puts loc.name
-				puts loc.woeid
-				countryCode = loc.woeid
-			end
-		end
-		trends = client.trends(countryCode)
-		trends.each do |tr|
-			puts tr.name
-		end
+    return @client.search(@location, :result_type => "recent").take(6).collect
 	end
 end

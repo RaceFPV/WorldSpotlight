@@ -31,10 +31,14 @@ class MapController < ApplicationController
     @countryregion = Country.find_country_by_alpha2(@country).region
     @countrysubregion = Country.find_country_by_alpha2(@country).subregion
 
+    #for news
     news = NewsScraper.new(URI::encode(@countryname.to_s))
     @page = news.getNews
     @title_count = @page.css("title").count
 
+    #for twitter feed
+    twitter = TwitterScraper.new(@countryname)
+    @twitter = twitter.getTrends()
 
     #render the country info
     return render partial: 'show.js.erb'
