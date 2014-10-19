@@ -117,7 +117,6 @@ class TwitterScraper < Scraper
     return @client.search(@location, :result_type => "recent").take(6).collect
 	end
 
-<<<<<<< HEAD
 	def getCountryCode()
 		res = []
 		countries = client.trends_available()
@@ -126,4 +125,15 @@ class TwitterScraper < Scraper
 		end
 		return res
 	end
+end
+
+class YouTubeScraper < Scraper
+	attr_accessor :location
+
+	def initialize(location)
+		@location = location
+	end
+
+	client = YouTubeIt::Client.new(dev_key: "AIzaSyBcY6x0hRCf1of_ARJzFyW47s5PGYCpS_Y")
+	videos = client.videos_by(:most_viewed, region: @location)
 end
