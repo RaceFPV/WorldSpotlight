@@ -1,6 +1,7 @@
         <div class="panel-body twitter-panel">
           <% @tweets.each do |tweet| %>
-    	      <%= auto_link("#{tweet.user.screen_name}: #{tweet.text}".html_safe) %>
+          <% twit = auto_link("#{tweet.user}" + ": " + "#{tweet.text}") %>
+          <%= twit.html_safe %>
             <hr/>
 	        <% end %>
         </div>
