@@ -133,7 +133,8 @@ class YouTubeScraper < Scraper
 	def initialize(location)
 		@location = location
 	end
-
-	client = YouTubeIt::Client.new(dev_key: "AIzaSyBcY6x0hRCf1of_ARJzFyW47s5PGYCpS_Y")
-	videos = client.videos_by(:most_viewed, region: @location)
+	def get_videos
+		client = YouTubeIt::Client.new(dev_key: "AIzaSyBcY6x0hRCf1of_ARJzFyW47s5PGYCpS_Y")
+		videos = client.videos_by(:most_viewed, region: @location)
+	end
 end
