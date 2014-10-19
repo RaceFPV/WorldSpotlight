@@ -1,0 +1,10 @@
+        <div class="panel-body news-panel">
+          <% if @page %>
+            <% @title_count.times.each do |num| %>
+              <a href="<%= @page.css('url')[num].text %>" target="_blank"><%= @page.css("title")[num].text %></a>
+              <hr/>
+            <% end %>
+          <% else %>
+            News not available
+          <% end %>
+        </div>

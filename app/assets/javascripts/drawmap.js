@@ -38,8 +38,15 @@ $(function(){
         if(title_moved === false){
           $('h1#main-title').animate({width: "28%"}, 2000);
           title_moved = true;
-        }
-        $.get( "map/" +selectedRegions)
+        };
+        var regions = selectedRegions;
+        $.get( "map/" +regions);
+        $.get( "map/" +regions+ "/countryname");
+        $.get( "map/" +regions+ "/glance");
+        $.get( "map/" +regions+ "/background");
+        $.get( "map/" +regions+ "/twitter");
+        $.get( "map/" +regions+ "/news");
+        $.get( "map/" +regions+ "/youtube");
     }});
 });
 });

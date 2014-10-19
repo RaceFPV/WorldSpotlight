@@ -1,0 +1,24 @@
+ <div class="panel-body glance-panel">
+          <% c = TZInfo::Country.get(@country) %>
+          <% czone = c.zone_identifiers.first %>
+          <% Time.zone = czone %>
+          <h4 class="thetime"><%= Time.zone.now.strftime("%I:%M%p") %></h4>
+          <%= Time.zone.now.strftime("%A") %>, <%= Time.zone.now.strftime("%b #{Time.zone.now.day.ordinalize} %Y") %>
+          <br/><br/>
+          <% if @weather %>
+          Temp: 
+            <strong><%= @weather.condition.temp %> <%= @weather.units.temperature %></strong>
+          <br/>
+          Conditions: 
+          <strong><%= @weather.condition.code('string') %></strong>
+          <% else %>
+            Weather not available
+          <% end %>
+          <br/>
+          <br/>
+          <% if @currencyname %>
+            $1 US = <%= @currencysymbol %><%= @currencyconverted1 %> <%= @currencyname %>
+          <% else %>
+            Currency rates not available
+          <% end %>
+</div>

@@ -1,0 +1,6 @@
+        <div class="panel-body twitter-panel">
+          <% @twitter.each do |tweet| %>
+    	      <%= "#{tweet.user.screen_name}: #{tweet.text}" %>
+            <hr/>
+	        <% end %>
+        </div>

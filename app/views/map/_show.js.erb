@@ -1,6 +1,2 @@
 $('#countryshow').remove();
-if ($('.backgroundimage').length > 1) {
-  $('.backgroundimage').first().remove();
-}
-$("#countryinfo").append("<%= j render('background.html.erb') %>");
 $("#countryinfo").prepend("<%= j render('show.html.erb') %>");
