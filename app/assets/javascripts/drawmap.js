@@ -17,21 +17,25 @@ $(function(){
     regionsSelectableOne: true,
     regionStyle: {
       initial: {
-    fill: '#252537',
+    fill: '#333',
     "fill-opacity": 1,
-    stroke: '#000',
-    "stroke-width": 0.7,
-    "stroke-opacity": 1
+    stroke: '#fff',
+    "stroke-width": 1,
+    "stroke-opacity": .2
       },
       selected: {
-        fill: '#E6E600'
+        fill: '#F7DF2D',
+        "fill-opacity": 1
       },
       hover: {
-        fill: '#B2B200',
-        "fill-opacity": 0.8
+        fill: '#FFE62B',
+        "fill-opacity": 1
       }
     },
     backgroundColor: 'transparent',
+      onRegionLabelShow: function(e, el, code){
+    e.preventDefault();
+      },
       onRegionSelected: function(){
         var region = map.getSelectedRegions();
         $.get( "map/" +region+ "")
