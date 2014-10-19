@@ -116,4 +116,13 @@ class TwitterScraper < Scraper
     puts "waiting on twitter"
     return @client.search(@location, :result_type => "recent").take(6).collect
 	end
+
+	def getCountryCode()
+		res = []
+		countries = client.trends_available()
+		countries.each do |country|
+			res << country.country_code
+		end
+		return res
+	end
 end
