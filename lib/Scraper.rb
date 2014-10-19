@@ -4,7 +4,6 @@ require 'json'
 require 'twitter'
 
 #Base class for all the scraping class
-#TODO: Refactor
 class Scraper
    attr_accessor :url, :location
 
