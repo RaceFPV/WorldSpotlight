@@ -117,6 +117,7 @@ class TwitterScraper < Scraper
 		trends.each do |tr|
 			puts tr.name
 		end
+		return trends
 	end
 	
 	def getTweets()
