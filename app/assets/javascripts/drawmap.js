@@ -34,13 +34,12 @@ $(function(){
       }
     },
     backgroundColor: 'transparent',
-      onRegionSelected: function(){
-        if(title_moved == false){
+      onRegionSelected: function(e, code, isSelected, selectedRegions){
+        if(title_moved === false){
           $('h1#main-title').animate({width: "25%"}, 2000);
           title_moved = true;
         }
-        var region = map.getSelectedRegions();
-        $.get( "map/" +region+ "")
+        $.get( "map/" +selectedRegions)
     }});
 });
 });

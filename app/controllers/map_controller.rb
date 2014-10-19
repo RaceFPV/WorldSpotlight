@@ -18,15 +18,17 @@ class MapController < ApplicationController
     @image = obj.getImageUrl()
 
     #for currency
-    @currencyname = Country[@country].currency['name']
-    @currencysymbol = Country[@country].currency['symbol']
-    @currencycode = Country[@country].currency['code']
+    @currencyname = Country[@country].currency['name'] rescue nil
+    @currencysymbol = Country[@country].currency['symbol'] rescue nil
+    @currencycode = Country[@country].currency['code'] rescue nil
     Money::Bank::GoogleCurrency.ttl_in_seconds = 86400
     Money.default_bank = Money::Bank::GoogleCurrency.new
-    @currencyconverted1 = Money.us_dollar(100).exchange_to(@currencycode)
-    @currencyconverted10 = Money.us_dollar(1000).exchange_to(@currencycode)
-    @currencyconverted100 = Money.us_dollar(10000).exchange_to(@currencycode)
-    @currencyconverted1000 = Money.us_dollar(100000).exchange_to(@currencycode)
+    if @currencycode
+      @currencyconverted1 = Money.us_dollar(100).exchange_to(@currencycode)
+      @currencyconverted10 = Money.us_dollar(1000).exchange_to(@currencycode)
+      @currencyconverted100 = Money.us_dollar(10000).exchange_to(@currencycode)
+      @currencyconverted1000 = Money.us_dollar(100000).exchange_to(@currencycode)
+    end
     
     #for seasons
     @countryregion = Country.find_country_by_alpha2(@country).region
