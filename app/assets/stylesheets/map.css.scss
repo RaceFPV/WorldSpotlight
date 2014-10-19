@@ -18,6 +18,20 @@
   max-width:25px;
 }
 
+#random_button{
+  float:left;
+  z-index:5;
+  padding:10px;
+  color:snow;
+  background-color:#222;
+  opacity:0.5;
+  cursor:pointer;
+  font-weight:bold;
+  left:20px;
+  top:100px;
+  position:fixed;
+}
+
 .countrybackgroundimage {
   position: absolute;
   top: 0px;
