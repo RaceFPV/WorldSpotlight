@@ -137,11 +137,20 @@ end
 class YouTubeScraper < Scraper
 	attr_accessor :location
 
+	Yt.configure do |config|
+  	config.api_key = 'AIzaSyCx7UTu1n9WvHvDwASwNiFSOfDBO6ccMko'
+	end
+
 	def initialize(location)
 		@location = location
 	end
+
 	def get_videos
-		client = YouTubeIt::Client.new(dev_key: "AIzaSyBcY6x0hRCf1of_ARJzFyW47s5PGYCpS_Y")
-		results = client.videos_by(:recently_featured, region: location)
+		videos = Yt::Collections::Videos.new
+		return lambda { videos.where(chart: 'mostPopular', regionCode: "#{location}")}
+	end
+
+	def make_url(id)
+		return "https://www.youtube.com/watch?v=#{id}"
 	end
 end

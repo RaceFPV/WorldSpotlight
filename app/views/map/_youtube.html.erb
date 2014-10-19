@@ -1,10 +1,12 @@
 <div class="panel-body youtube-panel">
+
 <% if @results %>
-	<% @video_count.times do |num| %>
-		<a href="<%= @results.videos[num].media_content[0].url %>" target="_blank"><%= @results.videos[num].title %></a> 
+	<% @results.map.take(6).each do |vid| %>
+		<a href="https://www.youtube.com/watch?v=<%= vid.id %>" target="_blank"><%= vid.title %></a> 
 		<hr>
 	<% end %>
-<% else %>
+<% elsif %>
 	<%= @message %>
 <% end %>
+
 </div>

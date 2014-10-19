@@ -33,7 +33,7 @@ gem 'yahoo_weather'
 gem 'nokogiri'
 gem 'countries_and_languages', :require => 'countries_and_languages/rails'
 gem 'twitter'
-gem 'youtube_it', github: 'kylejginavan/youtube_it'
+gem 'yt', '~> 0.13.4'
 
 #Heroku support
 group :production do

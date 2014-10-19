@@ -78,21 +78,34 @@ class MapController < ApplicationController
     @country = params[:id]
     @countryname = Country.find_country_by_alpha2(@country)
 
-    youtube = YouTubeScraper.new("#{@country}")
-    begin
-      @results = youtube.get_videos
-    # Rescue OpenURI
-    rescue OpenURI::HTTPError
-      @message = "There are no videos available in this country"
-      render partial: 'youtube.js.erb'
+    youtube = Yt::Collections::Videos.new
+    Yt.configure do |config|
+      config.api_key = 'AIzaSyCx7UTu1n9WvHvDwASwNiFSOfDBO6ccMko'
     end
-    if @results && @results.videos.count < 5
-      @video_count = @results.videos.count - 1
-    elsif @results && @results.videos.count > 5
-      @video_count = 5
-    else
-      return @message
+    @results = youtube.where(chart: 'mostPopular', regionCode: @country)
+    
+    if @results.to_s =~ /'Yt::Errors::RequestError'/
+      @results = nil
+      
     end
+
+    @message = "There are no videos for this country"
+
+    # begin
+    #   youtube = Yt::Collections::Videos.new
+    #   @results = youtube.where(chart: 'mostPopular', regionCode: '#{@country}')
+    # # Rescue OpenURI
+    # rescue OpenURI::HTTPError
+    #   @message = "There are no videos available in this country"
+    #   render partial: 'youtube.js.erb'
+    # end
+    # if @results && @results.count < 5
+    #   @video_count = @results.count - 1
+    # elsif @results && @results.count > 5
+    #   @video_count = 5
+    # else
+    #   return @message
+    # end
     return render partial: 'youtube.js.erb'
   end
 
