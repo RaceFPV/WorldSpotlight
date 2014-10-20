@@ -32,7 +32,7 @@ class MapController < ApplicationController
     #for twitter feed
     twitter = TwitterScraper.new(@countryname)
     @tweets = twitter.getTweets()
-    @trends = twitter.getTrends()
+    #@trends = twitter.getTrends()
     #render the twitter panel
     return render partial: 'twitter.js.erb'
   end

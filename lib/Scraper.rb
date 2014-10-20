@@ -2,6 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 require 'json'
 require 'twitter'
+require 'twitter-text'
 
 #Base class for all the scraping class
 class Scraper
@@ -82,6 +83,7 @@ end
 
 =end
 class TwitterScraper < Scraper
+	include Twitter::Autolink
 	attr_accessor :client
 
 	def initialize(name)
